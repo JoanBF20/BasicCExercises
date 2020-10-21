@@ -153,23 +153,36 @@ namespace ListModificationChallenge
 
         private static List<PersonModel> InsertRecordInTheMiddleIntoNewList(List<PersonModel> people)
         {
-            List<PersonModel> output;
+            List<PersonModel> output = new List<PersonModel>();
+
+            foreach (PersonModel i in people)
+            {
+                output.Add(i);
+            }
+
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record after Paul Jones in the incoming list and return a new list that includes newPerson
-            // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
+            
+            int position = people.Count / 2;
+
+            if (people.Count != position * 2)
+                position++;
+
+            output.Insert(position, newPerson);
 
             return output;
         }
 
         private static List<PersonModel> SortAndReturnANewList(List<PersonModel> people)
         {
-            List<PersonModel> output;
+            List<PersonModel> output = new List<PersonModel>();
 
-            // TODO: Sort the incoming list values by fullname (ascending) and return a new list
-            // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
+            foreach (PersonModel i in people)
+            {
+                output.Add(i);
+            }
+
+            output.Sort((x, y) => x.FullName.CompareTo(y.FullName));
 
             return output;
         }
