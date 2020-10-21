@@ -121,24 +121,32 @@ namespace ListModificationChallenge
         #region Standard Challenge
         private static List<PersonModel> InsertRecordLastIntoNewList(List<PersonModel> people)
         {
-            List<PersonModel> output;
+            List<PersonModel> output = new List<PersonModel>();
+
+            foreach (PersonModel i in people)
+            {
+                output.Add(i);
+            }
+
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record to the end of the incoming list and return a new list that includes newPerson
-            // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
+            output.Add(newPerson);
 
             return output;
         }
 
         private static List<PersonModel> InsertRecordFirstIntoNewList(List<PersonModel> people)
         {
-            List<PersonModel> output;
+            List<PersonModel> output = new List<PersonModel>();
+
+            foreach (PersonModel i in people)
+            {
+                output.Add(i);
+            }
+
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record to the beginning of the incoming list and return a new list that includes newPerson
-            // HACK: The following line is incorrect but is used to get this to compile
-            output = people;
+            output.Insert(0, newPerson);
 
             return output;
         }
