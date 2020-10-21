@@ -193,29 +193,34 @@ namespace ListModificationChallenge
         {
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record to the end of the incoming list
-            
+            people.Add(newPerson);
+
         }
 
         private static void InsertRecordFirstIntoList(List<PersonModel> people)
         {
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record to the beginning of the incoming list
-            
+            people.Insert(0, newPerson);
+
         }
 
         private static void InsertRecordInTheMiddleOfTheList(List<PersonModel> people)
         {
             PersonModel newPerson = new PersonModel { FirstName = "Greg", LastName = "Brown" };
 
-            // TODO: Add a record after Paul Jones in the incoming list
-            
+            int position = people.Count / 2;
+
+            if (people.Count != position * 2)
+                position++;
+
+            people.Insert(position, newPerson);
+
         }
 
         private static void SortAList(List<PersonModel> people)
         {
-            // TODO: Sort the incoming list values by fullname (ascending)
+            people.Sort((x, y) => x.FullName.CompareTo(y.FullName));
         }
         #endregion
 
